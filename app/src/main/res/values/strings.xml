@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Interview</string>
+    <string name="vehicle_list">Vehicles</string>
+    <string name="vehicle_detail">Vehicle Detail</string>
+    <string name="country_list_country_region_name">%s, %s</string>
+    <string name="there_was_an_error_retrieving_details">There was an error retrieving details. Touch to retry.</string>
+    <string name="next_page_load_failure_msg">An Error Occurred. Press to try again</string>
+    <string name="next_page_all_items_loaded">No more items</string>
+    <string name="next_page_load_next">Click to load more.</string>
+    <string name="please_wait">Loading more items…</string>
+</resources>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/vehicleListFragment">
+    <fragment
+        android:id="@+id/vehicleListFragment"
+        android:name="np.pro.dipendra.interview.uilayer.vehiclelist.VehicleListFragment"
+        tools:layout="@layout/fragment_vehicle_list">
+        <action
+            android:id="@+id/action_vehicleListFragment_to_vehicleDetailFragment"
+            app:destination="@+id/vehicleDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/vehicleDetailFragment"
+        android:name="np.pro.dipendra.interview.uilayer.vehicleDetail.VehicleDetailFragment"
+        app:popUpTo="@+id/vehicleListFragment"
+        app:popUpToInclusive="true"
+        tools:layout="@layout/fragment_vehicle_detail">
+        <argument
+            android:name="vehicleItem"
+            app:argType="np.pro.dipendra.interview.uilayer.vehiclelist.VehicleItem" />
+    </fragment>
+</navigation>
