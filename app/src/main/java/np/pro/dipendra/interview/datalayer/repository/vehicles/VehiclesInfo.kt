@@ -7,5 +7,6 @@ data class VehiclesInfo(
     val name: String,
     val make: String?,
     val model: String?,
+    val vehicleType: String?,
     val imageUrl: String?
 ) : Serializable

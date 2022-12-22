@@ -35,16 +35,16 @@ abstract class VehicleListViewHolder(itemView: View) : ViewHolder(itemView)
 
 class VehicleItemViewHolder(itemView: View) : VehicleListViewHolder(itemView) {
     private val name = itemView.findViewById<TextView>(R.id.name)
-    private val make = itemView.findViewById<TextView>(R.id.make)
-    private val model = itemView.findViewById<TextView>(R.id.model)
+    private val make = itemView.findViewById<TextView>(R.id.makeAndModel)
+    private val extra = itemView.findViewById<TextView>(R.id.extra)
     private val icon = itemView.findViewById<ImageView>(R.id.icon)
     fun bind(
         info: VehicleItem,
         onClick: (VehicleItem) -> Unit
     ) {
         name.text = info.name
-        model.text = info.imageUrl
-        make.text = info.model
+        make.text = info.makeAndModel
+        extra.text = info.extra
         icon.displayImageFrom(info.imageUrl)
         itemView.setOnClickListener {
             onClick.invoke(info)

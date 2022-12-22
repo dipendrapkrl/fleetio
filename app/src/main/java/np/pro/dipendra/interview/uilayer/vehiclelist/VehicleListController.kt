@@ -28,6 +28,7 @@ interface VehicleListController {
         object Retry : UiAction()
         data class LoadStateChanged(val combinedLoadStates: CombinedLoadStates) : UiAction()
         data class ItemClick(val vehicleItem: VehicleItem) : UiAction()
+        data class SearchText(val text: String?) : UiAction()
     }
 
 }

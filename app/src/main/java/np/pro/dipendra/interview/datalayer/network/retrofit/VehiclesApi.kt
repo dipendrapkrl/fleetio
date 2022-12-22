@@ -7,5 +7,8 @@ import retrofit2.http.Query
 
 interface VehiclesApi {
     @GET("vehicles")
-    suspend fun getVehicles(@Query("page") page: Int): Answer<List<VehiclesApiModel>>
+    suspend fun getVehicles(
+        @Query("page") page: Int,
+        @Query("q[make_eq]") make: String?
+    ): Answer<List<VehiclesApiModel>>
 }

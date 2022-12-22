@@ -5,6 +5,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView.OnQueryTextListener
+import androidx.appcompat.widget.SearchView
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -20,6 +22,7 @@ import np.pro.dipendra.interview.databinding.FragmentVehicleListBinding
 import np.pro.dipendra.interview.uilayer.vehiclelist.VehicleListController.UiAction
 import np.pro.dipendra.interview.uilayer.vehiclelist.VehicleListController.UiEvent
 import np.pro.dipendra.interview.uilayer.vehiclelist.VehicleListController.UiState.*
+
 
 @AndroidEntryPoint
 class VehicleListFragment : Fragment() {
@@ -43,10 +46,29 @@ class VehicleListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupViews()
         setupClickListeners()
+        setupSearch()
         observeStates()
         observeActions()
         observePagingState()
         sendAction(UiAction.InitialView)
+    }
+
+    private fun setupSearch() {
+        binding.search.setOnQueryTextListener(object : OnQueryTextListener,
+            SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                sendAction(UiAction.SearchText(query))
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                return false
+            }
+        })
+        binding.search.setOnCloseListener {
+            sendAction(UiAction.SearchText(null))
+            false
+        }
     }
 
     private fun setupClickListeners() {

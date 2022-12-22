@@ -5,21 +5,32 @@ import androidx.paging.PagingState
 import np.pro.dipendra.interview.datalayer.repository.Answer.Error
 import np.pro.dipendra.interview.datalayer.repository.Answer.Success
 import np.pro.dipendra.interview.datalayer.repository.vehicles.VehiclesRepository
-import javax.inject.Inject
 
-class VehicleListPagedSource @Inject constructor(private val vehiclesRepository: VehiclesRepository) :
-    PagingSource<Int, VehicleItem>() {
+class VehicleListPagedSource constructor(
+    private val vehiclesRepository: VehiclesRepository, private val searchKey: String?
+) : PagingSource<Int, VehicleItem>() {
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, VehicleItem> {
         val pageNumber = params.key ?: 1
-        return when (val result = vehiclesRepository.getVehiclesInfo(pageNumber)) {
+        return when (val result = vehiclesRepository.getVehiclesInfo(pageNumber, searchKey)) {
             is Error -> {
                 LoadResult.Error(result.exception)
             }
             is Success -> {
                 val vehiclesInfos = result.data.map {
+                    val makeAndModel = when {
+                        !it.make.isNullOrEmpty() && !it.model.isNullOrEmpty() -> "${it.model} by ${it.make}"
+                        !it.make.isNullOrEmpty() && it.model.isNullOrEmpty() -> "${it.make}"
+                        it.make.isNullOrEmpty() && !it.model.isNullOrEmpty() -> "${it.model}"
+                        else -> ""
+                    }
+
                     VehicleItem(
-                        it.name, it.make ?: "", it.model ?: "", it.imageUrl ?: "", it
+                        name = it.name,
+                        makeAndModel = makeAndModel,
+                        extra = it.vehicleType ?: "",
+                        imageUrl = it.imageUrl ?: "",
+                        vehiclesInfo = it
                     )
                 }
                 val headerFields = result.headerFields

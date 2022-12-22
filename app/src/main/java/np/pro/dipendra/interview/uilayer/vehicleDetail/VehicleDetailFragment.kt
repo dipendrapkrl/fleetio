@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.viewModelScope
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -38,8 +39,15 @@ class VehicleDetailFragment : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         observeState()
+        setClickListeners()
 
         sendAction(InitialView(args.vehicleItem))
+    }
+
+    private fun setClickListeners() {
+        binding.back.setOnClickListener {
+            findNavController().navigateUp()
+        }
     }
 
     private fun observeState() {
@@ -55,8 +63,8 @@ class VehicleDetailFragment : DialogFragment() {
 
     private fun setupBody(vehicleItem: VehicleItem) {
         binding.name.text = vehicleItem.name
-        binding.make.text = vehicleItem.make
-        binding.model.text = vehicleItem.model
+        binding.makeAndModel.text = vehicleItem.makeAndModel
+        binding.extra.text = vehicleItem.extra
         binding.icon.displayImageFrom(vehicleItem.imageUrl)
     }
 

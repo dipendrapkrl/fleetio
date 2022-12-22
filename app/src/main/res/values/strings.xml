@@ -8,4 +8,5 @@
     <string name="next_page_all_items_loaded">No more items</string>
     <string name="next_page_load_next">Click to load more.</string>
     <string name="please_wait">Loading more items…</string>
+    <string name="search">Search</string>
 </resources>

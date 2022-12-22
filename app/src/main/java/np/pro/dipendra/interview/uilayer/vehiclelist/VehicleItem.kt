@@ -9,8 +9,8 @@ import np.pro.dipendra.interview.datalayer.repository.vehicles.VehiclesInfo
 @Parcelize
 data class VehicleItem(
     val name: String,
-    val make: String,
-    val model: String,
+    val makeAndModel: String,
+    val extra: String,
     val imageUrl: String,
     val vehiclesInfo: VehiclesInfo
 ) : Parcelable
