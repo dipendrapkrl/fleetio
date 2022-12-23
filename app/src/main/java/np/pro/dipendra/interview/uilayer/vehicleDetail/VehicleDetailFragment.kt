@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import np.pro.dipendra.interview.R
 import np.pro.dipendra.interview.collect
 import np.pro.dipendra.interview.databinding.FragmentVehicleDetailBinding
 import np.pro.dipendra.interview.uilayer.displayImageFrom
@@ -45,7 +46,7 @@ class VehicleDetailFragment : DialogFragment() {
     }
 
     private fun setClickListeners() {
-        binding.back.setOnClickListener {
+        binding.toolbar.setNavigationOnClickListener {
             findNavController().navigateUp()
         }
     }
@@ -65,6 +66,7 @@ class VehicleDetailFragment : DialogFragment() {
         binding.name.text = vehicleItem.name
         binding.makeAndModel.text = vehicleItem.makeAndModel
         binding.extra.text = vehicleItem.extra
+        binding.vin.text = vehicleItem.vin
         binding.icon.displayImageFrom(vehicleItem.imageUrl)
     }
 

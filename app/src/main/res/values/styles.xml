@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ToolbarStyle">
+        <item name="textAllCaps">false</item>
+        <item name="actionMenuTextColor">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/colorOnBackground</item>
+        <item name="android:textColorSecondary">@color/colorOnBackgroundVariant</item>
+        <item name="android:background">?colorPrimary</item>
+        <item name="android:elevation">4dp</item>
+    </style>
+
+    <style name="TextAppearance.Headline3" parent="BaseHeading.TextAppearance">
+        <item name="android:textSize">18sp</item>
+        <item name="android:letterSpacing">0.0278</item>
+        <item name="android:lineSpacingExtra">4sp</item>
+    </style>
+
+    <style name="BaseHeading.TextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:lineSpacingExtra">4sp</item>
+    </style>
+</resources>

@@ -30,6 +30,8 @@ class VehicleListPagedSource constructor(
                         makeAndModel = makeAndModel,
                         extra = it.vehicleType ?: "",
                         imageUrl = it.imageUrl ?: "",
+                        year = it.year ?: "",
+                        vin = it.vin ?: "",
                         vehiclesInfo = it
                     )
                 }

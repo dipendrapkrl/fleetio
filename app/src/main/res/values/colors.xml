@@ -10,4 +10,25 @@
     <color name="green">#2fac79</color>
     <color name="red">#f1636e</color>
     <color name="card_background_color">#f8f8f8</color>
+    <color name="grey">#E3E3E3</color>
+    <color name="space_80">#DB575757</color>
+
+    <color name="royal_blue">#3831AB</color>
+    <color name="onyx">#2B2B2B</color>
+
+    <color name="kyanite">#9097FD</color>
+    <color name="alabaster">#FFFFFF</color>
+
+
+
+
+    <color name="colorAccent">@color/royal_blue</color>
+    <color name="colorOnBackground">@color/onyx</color>
+    <color name="colorOnBackgroundVariant">@color/grey</color>
+    <color name="colorTertiaryAction">@color/kyanite</color>
+    <color name="colorSurface">@color/alabaster</color>
+    <color name="colorPrimaryBackground">@color/alabaster</color>
+    <color name="colorOnPrimaryBackground">@color/royal_blue</color>
+
+
 </resources>

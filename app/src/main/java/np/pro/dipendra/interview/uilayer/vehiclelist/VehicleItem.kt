@@ -12,5 +12,7 @@ data class VehicleItem(
     val makeAndModel: String,
     val extra: String,
     val imageUrl: String,
+    val vin: String,
+    val year: String,
     val vehiclesInfo: VehiclesInfo
 ) : Parcelable

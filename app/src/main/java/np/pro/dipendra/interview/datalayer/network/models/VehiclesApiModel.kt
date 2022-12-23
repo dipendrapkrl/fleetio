@@ -9,5 +9,7 @@ data class VehiclesApiModel(
     @SerializedName("make") val make: String,
     @SerializedName("model") val model: String,
     @SerializedName("type_name") val typeName: String,
+    @SerializedName("vin") val vin: String,
+    @SerializedName("year") val year: String,
     @SerializedName("default_image_url_small") val imageUrl: String
 ) : Serializable

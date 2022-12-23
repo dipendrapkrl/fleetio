@@ -3,103 +3,156 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
+            style="@style/ToolbarStyle"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/back">
 
-            <ImageView
-                android:id="@+id/back"
-                android:layout_width="@dimen/grid_48"
-                android:layout_height="@dimen/grid_48"
-                android:src="@drawable/back"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.appcompat.widget.Toolbar>
-
-        <TextView
-            android:id="@+id/title"
-            style="@style/TextAppearance.MaterialComponents.Headline4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/grid_16"
-            android:layout_marginVertical="@dimen/grid_8"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:text="@string/vehicle_detail"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
-
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/title">
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/icon"
-                android:layout_width="@dimen/grid_100"
-                android:layout_height="@dimen/grid_100"
-                android:padding="@dimen/grid_8"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:src="@drawable/car" />
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/startGuide"
+            <TextView
+                style="@style/TextAppearance.Headline3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_begin="116dp" />
+                android:text="@string/vehicle_detail"
+                android:textColor="@color/colorOnBackground" />
 
-            <TextView
-                android:id="@+id/name"
-                style="@style/TextAppearance.MaterialComponents.Headline6"
-                android:layout_width="0dp"
+        </androidx.appcompat.widget.Toolbar>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/grid_16"
+            app:cardBackgroundColor="@color/card_background_color"
+            app:cardCornerRadius="@dimen/grid_8"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ellipsize="middle"
-                android:paddingTop="@dimen/grid_4"
-                android:singleLine="true"
-                android:textSize="26sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/startGuide"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="Red Car" />
+                android:layout_margin="@dimen/grid_16"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
-            <TextView
-                android:id="@+id/makeAndModel"
-                style="@style/TextAppearance.MaterialComponents.Body1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/grid_8"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/startGuide"
-                app:layout_constraintTop_toBottomOf="@+id/name"
-                tools:text="Tesla" />
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/iconCardView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/grid_16"
+                    android:layout_marginBottom="@dimen/grid_48"
+                    app:cardCornerRadius="100dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/extra"
-                style="@style/TextAppearance.MaterialComponents.Body2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/grid_4"
-                android:ellipsize="marquee"
-                android:paddingBottom="@dimen/grid_4"
-                android:singleLine="true"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/startGuide"
-                app:layout_constraintTop_toBottomOf="@+id/makeAndModel"
-                tools:text="Model Y" />
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/icon"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:layout_gravity="center"
+                        tools:src="@drawable/car" />
+                </com.google.android.material.card.MaterialCardView>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/nameLabel"
+                    style="@style/TextAppearance.MaterialComponents.Headline5"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="Name:"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/iconCardView" />
+
+                <TextView
+                    android:id="@+id/name"
+                    style="@style/TextAppearance.MaterialComponents.Headline6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="middle"
+                    android:paddingTop="@dimen/grid_4"
+                    android:singleLine="true"
+                    app:layout_constraintBottom_toBottomOf="@id/nameLabel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/nameLabel"
+                    app:layout_constraintTop_toTopOf="@+id/nameLabel"
+                    tools:text="Red Car" />
+
+                <TextView
+                    android:id="@+id/makeModelLabel"
+                    style="@style/TextAppearance.MaterialComponents.Headline5"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="Make And Model:"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/nameLabel" />
+
+                <TextView
+                    android:id="@+id/makeAndModel"
+                    style="@style/TextAppearance.MaterialComponents.Headline6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="middle"
+                    android:paddingTop="@dimen/grid_4"
+                    android:singleLine="true"
+                    app:layout_constraintBottom_toBottomOf="@id/makeModelLabel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/makeModelLabel"
+                    app:layout_constraintTop_toTopOf="@+id/makeModelLabel"
+                    tools:text="Model Y by Tesla" />
+
+                <TextView
+                    android:id="@+id/extraLabel"
+                    style="@style/TextAppearance.MaterialComponents.Headline5"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="Extra:"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/makeModelLabel" />
+
+                <TextView
+                    android:id="@+id/extra"
+                    style="@style/TextAppearance.MaterialComponents.Headline6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="middle"
+                    android:paddingTop="@dimen/grid_4"
+                    android:singleLine="true"
+                    app:layout_constraintBottom_toBottomOf="@id/extraLabel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/extraLabel"
+                    app:layout_constraintTop_toTopOf="@+id/extraLabel"
+                    tools:text="Model Y by Tesla" />
+
+                <TextView
+                    android:id="@+id/vinLabel"
+                    style="@style/TextAppearance.MaterialComponents.Headline5"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="VIN:"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/extraLabel" />
+
+                <TextView
+                    android:id="@+id/vin"
+                    style="@style/TextAppearance.MaterialComponents.Headline6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="middle"
+                    android:paddingTop="@dimen/grid_4"
+                    android:singleLine="true"
+                    app:layout_constraintBottom_toBottomOf="@id/vinLabel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/vinLabel"
+                    app:layout_constraintTop_toTopOf="@+id/vinLabel"
+                    tools:text="SDSADQW1213" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

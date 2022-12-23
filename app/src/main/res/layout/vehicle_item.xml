@@ -39,7 +39,6 @@
             android:ellipsize="middle"
             android:paddingTop="@dimen/grid_4"
             android:singleLine="true"
-            android:textSize="26sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/startGuide"
             app:layout_constraintTop_toTopOf="parent"
@@ -54,7 +53,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/startGuide"
             app:layout_constraintTop_toBottomOf="@+id/name"
-            tools:text="Tesla" />
+            tools:text="Model Y by Tesla" />
 
         <TextView
             android:id="@+id/extra"

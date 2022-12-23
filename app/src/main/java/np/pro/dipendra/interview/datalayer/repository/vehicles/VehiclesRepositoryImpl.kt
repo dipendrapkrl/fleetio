@@ -27,7 +27,9 @@ class VehiclesRepositoryImpl @Inject constructor(
             make = this.make,
             model = this.model,
             vehicleType = this.typeName,
-            imageUrl = this.imageUrl
+            imageUrl = this.imageUrl,
+            vin = this.vin,
+            year = this.year
         )
     }
 }
